@@ -1,0 +1,16 @@
+<% Object.keys(messages).forEach(type => { %>
+
+<div class="alert alert-<%= type %>">
+    <% messages[type].forEach(function (message) { %>
+    <%- message %>
+    <% }) %>
+</div>
+<% }) %>
+
+<% if (errors) { %>
+<div class="alert alert-danger">
+    <% errors.forEach(error => { %>
+    <%= error.param %> <%= error.msg %></br>
+    <% }) %>
+</div>
+<% } %>

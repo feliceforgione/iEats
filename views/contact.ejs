@@ -1,0 +1,53 @@
+<%- include('./_layouts/header') %>
+
+<body>
+  <!-- Navigation-->
+  <%- include('./_layouts/navigation') %>
+
+
+  <!-- book section -->
+  <section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Contact
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="/contact" method="post">
+              <div>
+                <input type="text" class="form-control" placeholder="Your Name" name="name" />
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Email" name="email" />
+              </div>
+              <div>
+                <input type="text" class="form-control" placeholder="Phone Number" name="phone" />
+              </div>
+              <div>
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Message"></textarea>
+              </div>
+
+              <div class="btn_box ">
+                <button class="darkRed" type="submit">
+                  Contact Us
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container ">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end book section -->
+
+
+  <!-- end client section -->
+  <%- include('./_layouts/footer') %>

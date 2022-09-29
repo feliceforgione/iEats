@@ -1,0 +1,19 @@
+<h5><%= user._id %></h5>
+<h6><span class="fw-bold">PHONE: </span> <%= user.phoneNumber %></h6>
+<div class="d-flex flex-row mb-3">
+    <address class="me-5">
+        <strong>BILLING ADDRESS</strong><br>
+        <%= user.billingAddress.street1 %><br>
+        <% if (user.billingAddress.street2 !== "") { %> <%= user.billingAddress.street2 %><br> <% } %>
+        <%= user.billingAddress.city %>, <%= user.billingAddress.state %> <br>
+        <%= user.billingAddress.zipcode %><br>
+    </address>
+
+    <address>
+        <strong>SHIPPING ADDRESS</strong><br>
+        <%= user.shippingAddress.street1 %><br>
+        <% if (user.shippingAddress.street2 !== "") { %> <%= user.shippingAddress.street2 %><br> <% } %>
+        <%= user.shippingAddress.city %>, <%= user.shippingAddress.state %> <br>
+        <%= user.shippingAddress.zipcode %><br>
+    </address>
+</div>

@@ -1,0 +1,148 @@
+<%- include('./_layouts/header') %>
+
+<body class="sub_page">
+    <div class="hero_area">
+        <!-- Navigation-->
+        <%- include('./_layouts/navigation') %>
+    </div>
+
+    <section class="main">
+        <div class="container">
+            <%- include('./_layouts/userNavigation') %>
+            <div class="heading_container heading_center">
+                <h2>
+                    Update Account
+                </h2>
+            </div>
+            <div>
+                <form action="/users/update" method="POST">
+
+                    <!-- FIRST AND LAST NAME DIV -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <!-- ENTER FIRST NAME -->
+                            <div class="form-outline">
+                                <input type="text" id="firstName" class="form-control form-control-lg" name="firstName"
+                                    required value="<%= user.firstName %>" />
+                                <label class="form-label" for="firstName">
+                                    First Name
+                                </label>
+                            </div>
+                        </div>
+                        <!-- LAST NAME -->
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+
+                                <input type="text" id="lastName" class="form-control form-control-lg" name="lastName"
+                                    value="<%= user.lastName %>" required />
+                                <label class="form-label" for="lastName">
+                                    Last Name
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Phone -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <input type="text" id="phoneNumber" class="form-control form-control-lg"
+                                    name="phoneNumber" value="<%= user.phoneNumber %>" required />
+                                <label class="form-label" for="phoneNumber">
+                                    Phone Number
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="my-3 fw-bold">Billing Address</p>
+                    <!-- BILLING ADDRESS 1 & 2-->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="billingStreet1" class="form-control form-control-lg"
+                            name="billingAddress.street1" value="<%= user.billingAddress.street1 %>" />
+                        <label class="form-label" for="billingStreet1">Address 1</label>
+                        <input type="text" id="billingStreet2" class="form-control form-control-lg"
+                            name="billingAddress.street2" value="<%= user.billingAddress.street2 %>" />
+                        <label class="form-label" for="billingStreet2">Address 2</label>
+                    </div>
+                    <!-- BILLING STATE CITY ZIPCODE DIV -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <!-- BILLING CITY -->
+                            <div class="form-outline">
+                                <input type="text" id="billingCity" class="form-control form-control-lg"
+                                    name="billingAddress.city" value="<%= user.billingAddress.city %>" required />
+                                <label class="form-label" for="billingCity">
+                                    City
+                                </label>
+                            </div>
+                        </div>
+                        <!-- BILLING STATE -->
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <input type="text" id="billingState" class="form-control form-control-lg"
+                                    name="billingAddress.state" value="<%= user.billingAddress.state %>" required />
+                                <label class="form-label" for="billingState">
+                                    State
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-4 col-md-6">
+                        <input type="text" id="billingZipcode" class="form-control form-control-lg"
+                            name="billingAddress.zipcode" value="<%= user.billingAddress.zipcode %>" />
+                        <label class="form-label" for="billingZipcode">Zipcode</label>
+                    </div>
+                    <!-- END OF BILLING STATE CITY ZIPCODE DIV -->
+
+                    <p class="my-3 fw-bold">Shipping Address</p>
+                    <!-- SHIPPING ADDRESS 1 & 2-->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="shippingStreet1" class="form-control form-control-lg"
+                            name="shippingAddress.street1" value="<%= user.shippingAddress.street1 %>" />
+                        <label class="form-label" for="shippingStreet1">Address 1</label>
+                        <input type="text" id="shippingStreet2" class="form-control form-control-lg"
+                            name="shippingAddress.street2" value="<%= user.shippingAddress.street2 %>" />
+                        <label class="form-label" for="shippingStreet2">Address 2</label>
+                    </div>
+                    <!-- SHIPPING STATE AND CITY DIV -->
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <!-- CITY -->
+                            <div class="form-outline">
+                                <input type="text" id="shippingCity" class="form-control form-control-lg"
+                                    name="shippingAddress.city" value="<%= user.shippingAddress.city %>" required />
+                                <label class="form-label" for="shippingCity">
+                                    City
+                                </label>
+                            </div>
+                        </div>
+                        <!-- SHIPPING STATE -->
+                        <div class="col-md-6 mb-4">
+                            <div class="form-outline">
+                                <input type="text" id="shippingState" class="form-control form-control-lg"
+                                    name="shippingAddress.state" value="<%= user.shippingAddress.state %>" required />
+                                <label class="form-label" for="shippingState">
+                                    State
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-outline mb-4 col-md-6">
+                        <input type="text" id="shippingZipcode" class="form-control form-control-lg"
+                            name="shippingAddress.zipcode" value="<%= user.shippingAddress.zipcode %>" />
+                        <label class="form-label" for="shippingZipcode">Zipcode</label>
+                    </div>
+                    <!-- #############END OF SHIPPING STATE CITY ZIPCODE DIV -->
+
+
+                    <div class="d-flex justify-content-end pt-3">
+
+
+                        <button type="submit" class="btn btn-warning btn-lg ms-2 mb-5">
+                            Update
+                        </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <br>
+    <%- include('./_layouts/footer') %>

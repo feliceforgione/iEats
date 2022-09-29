@@ -1,0 +1,53 @@
+<%- include('./_layouts/header') %>
+
+<body class="sub_page">
+
+    <div class="hero_area">
+        <!-- Navigation-->
+        <%- include('./_layouts/navigation') %>
+
+        <!-- end header section -->
+    </div>
+
+    <section class="food_section layout_padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-md-5">
+                    <img src="/product_images/<%= product._id %>/<%= product.image %>" alt="" class="foodImageMain">
+                    <br>
+                </div>
+                <div class="col-xs-12 col-md-5 text-end">
+
+                    <h1 class="page-header"><%= product.title %></h1>
+                    <span class="badge text-bg-success"><%- product.category %></span>
+                    <p><%- product.desc %></p>
+                    <p>$<%= parseFloat(product.price).toFixed(2) %></p>
+                    <a href="/cart/add/<%= product.slug %>" class="btn  btn-warning">Add to cart</a>
+
+
+                </div>
+                <div class="col-xs-12">
+                    <ul class="gallery">
+                        <% galleryImages.forEach(image => { %>
+                        <% if (image !== 'thumbs') { %>
+
+                        <li>
+                            <a data-fancybox="gallery" href="/product_images/<%= product._id %>/gallery/<%= image %>">
+                                <img src="/product_images/<%= product._id %>/gallery/thumbs/<%= image %>" alt="">
+                            </a>
+                        </li>
+
+
+                        <% } %>
+
+                        <%}) %>
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <%- include('./_layouts/footer') %>

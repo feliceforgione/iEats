@@ -1,0 +1,79 @@
+<%- include('./_layouts/header') %>
+
+<body>
+  <!-- Navigation-->
+  <%- include('./_layouts/navigation') %>
+
+
+  <!-- book section -->
+  <section class="book_section layout_padding">
+    <div class="container">
+
+      <div class="row justify-content-around">
+        <div class="col-md-6">
+          <div class="heading_container">
+            <h2>
+              Book A Table
+            </h2>
+          </div>
+          <div class="form_container">
+            <form action="/booktable" method="Post">
+              <div>
+                <input type="text" class="form-control" name="name" placeholder="Your Name"
+                  value="<%= bookingDetails.name %>" />
+              </div>
+              <div>
+                <input type="text" class="form-control" name="phone" placeholder="Phone Number"
+                  value="<%= bookingDetails.phone %>" />
+              </div>
+              <div>
+                <input type="email" class="form-control" name="email" placeholder="Your Email"
+                  value="<%= bookingDetails.email %>" />
+              </div>
+              <div>
+                <select class="form-control nice-select wide" name="numPeople">
+                  <option <%= bookingDetails.numPeople %> disabled selected>
+                    How many people?
+                  </option>
+                  <option value="2">
+                    2
+                  </option>
+                  <option value="3">
+                    3
+                  </option>
+                  <option value="4">
+                    4
+                  </option>
+                  <option value="5">
+                    5
+                  </option>
+                  <option value="more than 5">
+                    More than 5
+                  </option>
+                </select>
+              </div>
+              <div>
+                <input type="date" class="form-control" name="dateRequested">
+              </div>
+              <div>
+                <input type="time" class="form-control" name="timeRequested">
+              </div>
+              <div class="btn_box">
+                <button class="darkRed" type="submit">
+                  Book Now
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <img class="img-fluid" src="/images/dinnertable.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end book section -->
+
+
+  <!-- end client section -->
+  <%- include('./_layouts/footer') %>

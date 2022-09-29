@@ -1,0 +1,55 @@
+<%- include('../_layouts/adminheader') %>
+<h2 class="page-title">Bookings</h2>
+
+
+<ul class="nav fs-5">
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/orders?status=pending">Pending</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/orders?status=confirmed">Confirmed</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/orders?status=completed">Completed</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/orders?status=cancelled">Cancelled</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/orders?status=all">All</a>
+    </li>
+</ul>
+<section class="main">
+    <div class="container">
+        <section class="">
+            <table class=" table table-striped table-borderless align-middle">
+                <thead class="table-dark">
+                    <tr class="row">
+                        <th class="col-3">Date Requested</th>
+                        <th class="col-2">Name</th>
+                        <th class="col-2">Phone</th>
+                        <th class="col-1">People</th>
+                        <th class="col-2">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% tableBookings.forEach( tableBooking => { %>
+                    <tr class="row">
+                        <td class="col-3"><a
+                                href="/admin/orders/<%= tableBookings._id %>"><%= tableBooking.dateRequested.toLocaleString() %>
+                            </a></td>
+                        <td class="col-2"><%= tableBooking.name  %></td>
+                        <td class="col-2"><%= tableBooking.phone %></td>
+                        <td class="col-1"><%= tableBooking.numPeople %></td>
+                        <td class="col-2"><%= tableBooking.status %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+                <tfoot class="">
+                </tfoot>
+            </table>
+        </section>
+    </div>
+</section>
+
+<%- include('../_layouts/adminfooter') %>

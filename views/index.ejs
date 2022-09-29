@@ -1,0 +1,213 @@
+<%- include('./_layouts/header') %>
+
+<body>
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="images/hero-bg.jpg" alt="">
+    </div>
+    <!-- Navigation-->
+    <%- include('./_layouts/navigation') %>
+
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      iEats Online Ordering
+                    </h1>
+                    <p>
+                      Making online ordering easy without the service fees.
+                    </p>
+                    <div class="btn-box">
+                      <a href="/menu" class="btn1 darkRed">
+                        Order Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Book a Table
+                    </h1>
+                    <p>
+                      Avoid the wait, book your table now.
+                    </p>
+                    <div class="btn-box">
+                      <a href="/booktable" class="btn1 darkRed">
+                        Book a Table
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="container">
+          <ol class="carousel-indicators">
+            <li data-bs-target="#customCarousel1" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#customCarousel1" data-bs-slide-to="1"></li>
+          </ol>
+        </div>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- offer section -->
+
+  <section class="offer_section layout_padding-bottom">
+    <div class="offer_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            Daily Specials
+          </h2>
+        </div>
+        <div class="row">
+          <div class="col-md-6  ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="images/o1.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Tasty Thursdays
+                </h5>
+                <h6>
+                  <span>10%</span> Off
+                </h6>
+                <a class="darkRed" href="/menu">
+                  Order Now
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6  ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="images/o2.jpg" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Pizza Fridays
+                </h5>
+                <h6>
+                  <span>Free Garlic Knots</span>
+                </h6>
+                <a class="darkRed" href="/menu">
+                  Order Now
+
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="images/pizza-vector.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                We Are iEats
+              </h2>
+            </div>
+            <p>
+              A food based ecommerce system that elimates all fees but still maintains all the key functionality. Place
+              Orders! Book Tables! Manage Customers!
+            </p>
+            <a class="darkRed" href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+
+  <!-- client section -->
+
+  <section class="client_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center psudo_white_primary mb_45">
+        <h2>
+          Our Customers
+        </h2>
+      </div>
+      <div class="carousel-wrap row ">
+        <div class="owl-carousel client_owl-carousel">
+          <div class="item">
+            <div class="box">
+              <div class="detail-box">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam
+                </p>
+                <h6>
+                  Stella
+                </h6>
+                <p>
+                  Pizza Fanatic
+                </p>
+              </div>
+              <div class="img-box">
+                <img src="images/client1.jpg" alt="" class="box-img">
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="detail-box">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam
+                </p>
+                <h6>
+                  Felice
+                </h6>
+                <p>
+                  Customer
+                </p>
+              </div>
+              <div class="img-box">
+                <img src="images/client2.jpg" alt="" class="box-img">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+  <%- include('./_layouts/footer') %>

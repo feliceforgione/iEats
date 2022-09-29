@@ -1,0 +1,12 @@
+<div class="d-flex justify-content-between mb-3">
+    <h3>
+        <%= user.firstName %> <%= user.lastName %> Account
+    </h3>
+    <div>
+        <% if(user.admin) { %>
+        <a class=" btn btn-secondary" href="/admin/orders">Admin</a>
+        <% }%>
+        <a class=" btn btn-secondary" href="/users/update">Update Account</a>
+        <a class=" btn btn-primary" href="/users/logout">Logout</a>
+    </div>
+</div>

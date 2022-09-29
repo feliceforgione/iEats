@@ -1,0 +1,55 @@
+<%- include('../_layouts/adminheader') %>
+<h2 class="page-title">Add a Product</h2>
+<a href="/admin/products" class="btn btn-primary">Back to all products</a>
+<br>
+<br>
+<form action="/admin/products/add-product" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="" class="form-label">Title</label>
+        <input type="text" class="form-control" name="title" value="<%= title %>" placeholder="Title">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Description</label>
+        <textarea class="form-control" id="editor" name="desc" cols="30" rows="10"
+            placeholder="Description"><%= desc %></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Category</label>
+        <select name="category" class="form-control">
+            <% categories.forEach( category => {%>
+            <option value="<%= category.slug %>"><%= category.title %></option>
+            <%  })%>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Price</label>
+        <input type="text" class="form-control" name="price" value="<%= price %>" placeholder="Price">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Image</label>
+        <input type="file" class="form-control" name="image" id="img">
+        <img src="#" alt="" id="imgPreview">
+
+    </div>
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const image = document.querySelector("#imgPreview")
+                image.setAttribute('src', e.target.result)
+                image.style.width = 100
+                image.style.height = 100
+            }
+            reader.readAsDataURL(input.files[0])
+        }
+    }
+
+    document.querySelector('#img').addEventListener('change', (e) => {
+        readURL(e.target)
+    })
+</script>
+<%- include('../_layouts/adminfooter') %>

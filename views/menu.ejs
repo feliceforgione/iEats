@@ -1,0 +1,63 @@
+<%- include('./_layouts/header') %>
+
+<body class="sub_page">
+
+    <div class="hero_area">
+        <!-- Navigation-->
+        <%- include('./_layouts/navigation') %>
+
+        <!-- end header section -->
+    </div>
+
+    <!-- food section -->
+
+    <section class="food_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Our Menu
+                </h2>
+            </div>
+
+            <ul class="filters_menu">
+                <li class="active" data-filter="*">All</li>
+                <% categories.forEach( category => { %>
+                <li data-filter=".<%= category.title.toLowerCase() %>"><%= category.title %></li>
+                <%})%>
+            </ul>
+
+            <div class="filters-content">
+                <div class="row grid" style="--bs-gap: 0; column-gap: 0">
+                    <% products.forEach( product => {  %>
+                    <div class="col-3 all <%= product.category %>">
+                        <div class="box foodBox">
+                            <div>
+
+                                <div class="img-box"> <a href="/menu/<%= product.slug %>">
+                                        <img src="/product_images/<%= product._id %>/<%= product.image %>" alt=""></a>
+                                </div>
+                                <div class="detail-box">
+                                    <h5 style="height: 3rem;">
+                                        <%= product.title %>
+                                    </h5>
+                                    <div class="options">
+
+                                        <h6 class="badge text-bg-success"><%= product.category %></h6>
+                                        <a href="/menu/<%= product.slug %>"> <span
+                                                class="fw-bold price"><%= product.price %></span>
+                                            <!-- <i class="fa fa-shopping-cart" aria-hidden="true"></i> -->
+
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end food section -->
+    <%- include('./_layouts/footer') %>

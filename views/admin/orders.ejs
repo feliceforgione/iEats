@@ -1,0 +1,67 @@
+<%- include('../_layouts/adminheader') %>
+<h2 class="page-title">Orders</h2>
+<div class="d-flex justify-content-evenly mb-5">
+    <% if (pendingCount) {%>
+    <div>
+        <a class="btn btn-danger fs-4" href="/admin/orders?status=pending">
+            Pending Orders: <span class="fw-bold"><%= pendingCount %></span>
+        </a>
+    </div>
+    <div>
+        <% } if (cookingCount) {%>
+        <a class="btn btn-success fs-4" href="/admin/orders?status=cooking">
+            Cooking Orders: <span class="fw-bold"><%= cookingCount %></span>
+            <% } %>
+        </a>
+    </div>
+</div>
+
+<ul class="nav fs-5">
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/orders?status=pending">Pending</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/orders?status=cooking">Cooking</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/orders?status=completed">Completed</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/orders?status=cancelled">Cancelled</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/admin/orders?status=all">All</a>
+    </li>
+</ul>
+<section class="main">
+    <div class="container">
+        <section class="">
+            <table class="table table-striped table-borderless align-middle">
+                <thead class="table-dark">
+                    <tr class="row">
+                        <th class="col-3">Order Number</th>
+                        <th class="col-3">Date</th>
+                        <th class="col-4">Email</th>
+                        <th class="col-1">Status</th>
+                        <th class="col-1 text-end">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% orders.forEach( order => { %>
+                    <tr class="row">
+                        <td class="col-3"><a href="/admin/orders/<%= order._id %>"><%= order._id %> </a></td>
+                        <td class="col-3"><%= order.date.toLocaleString()  %></td>
+                        <td class="col-4"><%= order.email %></td>
+                        <td class="col-1"><%= order.status %></td>
+                        <td class="col-1 text-end">$<%= parseFloat(order.total).toFixed(2) %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+                <tfoot class="">
+                </tfoot>
+            </table>
+        </section>
+    </div>
+</section>
+
+<%- include('../_layouts/adminfooter') %>

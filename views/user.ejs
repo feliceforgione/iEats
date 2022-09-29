@@ -1,0 +1,38 @@
+<%- include('./_layouts/header') %>
+
+<body>
+  <!-- Navigation-->
+  <%- include('./_layouts/navigation') %>
+  <section class="main">
+    <div class="container">
+      <%- include('./_layouts/userNavigation') %>
+      <%- include('./_layouts/userInfo') %>
+      <section class="">
+        <h4>Recent Orders</h4>
+        <table class="table table-striped table-borderless align-middle">
+          <thead class="table-dark">
+            <tr class="row">
+              <th class="col-5">Order Number</th>
+              <th class="col-5">Date</th>
+              <th class="col-1">Status</th>
+              <th class="col-1 text-end">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% orders.forEach( order => { %>
+            <tr class="row">
+              <td class="col-5"><a href="/users/order?id=<%= order._id %>"><%= order._id %> </a></td>
+              <td class="col-5"><%= order.date.toLocaleString()  %></td>
+              <td class="col-1"><%= order.status %></td>
+              <td class="col-1 text-end">$<%= parseFloat(order.total).toFixed(2) %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+          <tfoot class="">
+          </tfoot>
+        </table>
+      </section>
+    </div>
+  </section>
+
+  <%- include('./_layouts/footer') %>

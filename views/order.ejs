@@ -1,0 +1,21 @@
+<%- include('./_layouts/header') %>
+
+<body>
+  <!-- Navigation-->
+  <%- include('./_layouts/navigation') %>
+  <section class="main">
+    <div class="container">
+      <%- include('./_layouts/userNavigation') %>
+      <section class="layout_padding">
+        <h4><span class="fw-bold">ORDER: </span> <%= order._id %></h4>
+        <p><span class="fw-bold me-2">STATUS: </span><%= order.status %> <span class="fw-bold me-2 ms-4">PAYMENT:
+          </span><%= order.paymentStatus %></p>
+        <%- include('./_layouts/order') %>
+
+
+      </section>
+    </div>
+  </section>
+
+
+  <%- include('./_layouts/footer') %>

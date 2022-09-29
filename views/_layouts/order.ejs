@@ -1,0 +1,43 @@
+<table class="table table-striped table-borderless align-middle">
+
+    <thead class="table-dark">
+        <tr class="row">
+            <th class="col-8">Item</th>
+            <th class="col-1">Price</th>
+            <th class="col-1">Quantity</th>
+            <th class="col-2 text-end">Subtotal</th>
+        </tr>
+    </thead>
+
+    <% 
+let total = 0;
+order.items.forEach(product => { 
+let subtotal = parseFloat(product.quantity * product.price); 
+total += subtotal;
+%>
+    <tbody>
+        <tr class="row">
+            <td class="col-8"><%= product.title %> (<%= product.foodID %>)</td>
+            <td class="col-1">$<%= parseFloat(product.price).toFixed(2) %></td>
+            <td class="col-1 text-center"><%= product.quantity %></td>
+            <td class="col-2 text-end">$<%= parseFloat(subtotal).toFixed(2) %></td>
+        </tr>
+
+        <%})%>
+    </tbody>
+    <tfoot class="">
+        <tr class="row">
+            <td class="col-11 fw-bold" align="right">Subtotal:</td>
+            <td class="col-1" align="right"> $<%= parseFloat(total).toFixed(2) %></td>
+        </tr>
+        <tr class="row">
+            <td class="col-11 fw-bold" align="right">Sales Tax (<%= (taxrate*100).toFixed(3) %>%) :</td>
+            <td class="col-1" align="right">
+                $<%= parseFloat(total*taxrate).toFixed(2) %></td>
+        </tr>
+        <tr class="row border-bottom">
+            <td class="col-11 fw-bold" align="right">Total:</td>
+            <td class="col-1" align="right"> $<%= parseFloat(total*(1+taxrate)).toFixed(2) %></td>
+        </tr>
+    </tfoot>
+</table>

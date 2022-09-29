@@ -1,0 +1,59 @@
+<%- include('../_layouts/adminheader') %>
+
+
+
+<section class="main">
+  <div class="container">
+
+    <section class="layout_padding">
+
+      <ul class="nav justify-content-around">
+        <li class="nav-item">
+          <a href="/admin/orders" class="btn btn-secondary fs-4">
+            << Orders</a>
+        </li>
+        <li class="nav-item">
+          <a href="/admin/orders/<%= order._id %>?action=cooking" class="btn btn-warning">Approve</a>
+        </li>
+        <li class="nav-item">
+          <a href="/admin/orders/<%= order._id %>?action=completed" class="btn btn-success">Complete</a>
+        </li>
+        <li class="nav-item">
+          <a href="/admin/orders/<%= order._id %>?action=cancelled" class="btn btn-danger">Cancel</a>
+        </li>
+
+      </ul>
+      <hr>
+      <h4 class="mb-4 text-success"><span class="fw-bold">ORDER: </span> <%= order._id %></h4>
+      <h5><%= order.email %></h5>
+      <h6><span class="fw-bold">NAME: </span> <%= customer.firstName %> <%= customer.lastName %></h6>
+      <h6><span class="fw-bold">PHONE: </span> <%= customer.phoneNumber %></h6>
+      <div class="d-flex flex-row mb-3">
+        <address class="me-5">
+          <strong>BILLING ADDRESS</strong><br>
+          <%= order.billingAddress.street1 %><br>
+          <% if (order.billingAddress.street2 !== "") { %> <%= order.billingAddress.street2 %><br> <% } %>
+          <%= order.billingAddress.city %>, <%= order.billingAddress.state %> <br>
+          <%= order.billingAddress.zipcode %><br>
+        </address>
+
+        <address>
+          <strong>SHIPPING ADDRESS</strong><br>
+          <%= order.shippingAddress.street1 %><br>
+          <% if (order.shippingAddress.street2 !== "") { %> <%= order.shippingAddress.street2 %><br> <% } %>
+          <%= order.shippingAddress.city %>, <%= order.shippingAddress.state %> <br>
+          <%= order.shippingAddress.zipcode %><br>
+        </address>
+      </div>
+      <p class="fs-5"><span class="fw-bold me-2">STATUS: </span><%= order.status %> <span
+          class="fw-bold me-2 ms-4">PAYMENT:
+        </span><%= order.paymentStatus %></p>
+      <%- include('../_layouts/order') %>
+
+
+    </section>
+  </div>
+</section>
+
+
+<%- include('../_layouts/adminfooter') %>

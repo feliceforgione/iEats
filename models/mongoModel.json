@@ -1,0 +1,73 @@
+{
+  "customers": {
+    "firstName": "Felice",
+    "lastName": "Forgione",
+    "hashedPassword": "aaaslfja;sldjfa",
+    "billingAddress": {
+      "Street 1": "14 Brighton Lane",
+      "Street 2": "",
+      "City": "New City",
+      "State": "New York",
+      "Zipcode": "10956"
+    },
+    "shippingAddress": {
+      "Street 1": "14 Brighton Lane",
+      "Street 2": "",
+      "City": "New City",
+      "State": "New York",
+      "Zipcode": "10956"
+    }
+  },
+  "products": {
+    "name": "Classic Pizza",
+    "price": "18",
+    "category": "Pizza"
+  },
+  "payments": {
+    "userId": "forgione67@gmail.com",
+    "type": "credit",
+    "status": "verified",
+    "card": {
+      "type": "visa",
+      "number": "1212",
+      "expiryMonth": 12,
+      "expiryYear": 2023,
+      "cvvVerified": true
+    },
+    "token": "secret_token"
+  },
+  "orders": {
+    "description": "orders. static data only",
+    "_id": {
+      "$oid": "62ccf07ebc6a60a9df1f0b9c"
+    },
+    "userID": "forgione67@gmail.com",
+    "paymentStatus": "processed",
+    "status": "delivered",
+    "amount": 70,
+    "items": [
+      {
+        "foodID": "classicLarge",
+        "quantity": 1,
+        "price": 18,
+        "discounts": 2,
+        "preTax": 16,
+        "afterTax": 17
+      }
+    ],
+    "billingAddress": {
+      "Street 1": "14 Brighton Lane",
+      "Street 2": "",
+      "City": "New City",
+      "State": "New York",
+      "Zipcode": "10956"
+    },
+    "shippingAddress": {
+      "Street 1": "14 Brighton Lane",
+      "Street 2": "",
+      "City": "New City",
+      "State": "New York",
+      "Zipcode": "10956"
+    }
+  }
+}
